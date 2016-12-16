@@ -1,0 +1,1 @@
+# sonarqube-nemo-on-appveyor
