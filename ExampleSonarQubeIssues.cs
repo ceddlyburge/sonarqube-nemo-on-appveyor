@@ -9,9 +9,14 @@ namespace sonarqube_nemo_on_appveyor
     // The full list of C# SonarQube rules is at http://dist.sonarsource.com/reports/coverage/rules/csharpsquid_rules_coverage.html
     public class ExampleSonarQubeIssues
     {
-        private void EmptyMethod()
+        void EmptyMethod()
         {
 
+        }
+
+        void InfiniteRecusrion()
+        {
+            InfiniteRecusrion();
         }
 
         public int ExceptionInProperty
