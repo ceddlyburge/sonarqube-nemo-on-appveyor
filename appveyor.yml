@@ -1,4 +1,7 @@
 before_build:
  - nuget restore
 build_script:
+ - choco install "msbuild-sonarqube-runner" -y
+ - MSBuild.SonarQube.Runner.exe begin /k:"SonarQubeNemoOnAppveyor" /d:"sonar.host.url=https://sonarqube.com" /d:"sonar.login=2c9eb4b0c421396f83d52337ac273108cce8f54f"
  - msbuild /verbosity:quiet "sonarqube-nemo-on-appveyor.sln"
+ - MSBuild.SonarQube.Runner.exe end /d:"sonar.login=2c9eb4b0c421396f83d52337ac273108cce8f54f"
