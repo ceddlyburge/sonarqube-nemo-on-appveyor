@@ -14,9 +14,9 @@ namespace sonarqube_nemo_on_appveyor
 
         }
 
-        void InfiniteRecusrion()
+        void InfiniteRecursion()
         {
-            InfiniteRecusrion();
+            InfiniteRecursion();
         }
 
         public int ExceptionInProperty
