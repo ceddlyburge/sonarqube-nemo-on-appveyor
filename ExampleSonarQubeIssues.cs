@@ -22,6 +22,11 @@ namespace sonarqube_nemo_on_appveyor
             }
         }
 
+        void InfiniteRecursion()
+        {
+            InfiniteRecursion();
+        }
+
         public void Example()
         {
             String unusedString;
