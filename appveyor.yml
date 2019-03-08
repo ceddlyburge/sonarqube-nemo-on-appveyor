@@ -4,8 +4,7 @@ environment:
 before_build:
  - nuget restore
 build_script:
- - choco install "msbuild-sonarqube-runner" -y
- - ps: if ($env:APPVEYOR_PULL_REQUEST_NUMBER) { MSBuild.SonarQube.Runner.exe begin /k:"SonarQubeNemoOnAppveyor" /d:"sonar.host.url=https://sonarcloud.io" /o:"ceddlyburge-github" /d:"sonar.login=7d723c30b74c350c85d6552647b3dab18d520f22" /d:"sonar.analysis.mode=preview" /d:"sonar.github.pullRequest=$env:APPVEYOR_PULL_REQUEST_NUMBER" /d:"sonar.github.repository=ceddlyburge/sonarqube-nemo-on-appveyor" /d:"sonar.github.oauth=%github_auth_token%" }
- - ps: if (-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { MSBuild.SonarQube.Runner.exe begin /k:"SonarQubeNemoOnAppveyor" /d:"sonar.host.url=https://sonarcloud.io" /o:"ceddlyburge-github" /d:"sonar.login=7d723c30b74c350c85d6552647b3dab18d520f22" }
+ - choco install "SonarScanner.MSBuild.exe" -y
+ - SonarScanner.MSBuild.exe begin /k:"SonarQubeNemoOnAppveyor" /d:"sonar.host.url=https://sonarcloud.io" /o:"ceddlyburge-github" /d:"sonar.login=7d723c30b74c350c85d6552647b3dab18d520f22"
  - msbuild /verbosity:quiet "sonarqube-nemo-on-appveyor.sln"
- -  MSBuild.SonarQube.Runner.exe end /d:"sonar.login=7d723c30b74c350c85d6552647b3dab18d520f22"
+ - SonarScanner.MSBuild.exe end /d:"sonar.login=7d723c30b74c350c85d6552647b3dab18d520f22"
