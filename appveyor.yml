@@ -4,7 +4,7 @@ environment:
 before_build:
  - nuget restore
 build_script:
- - choco install "SonarScanner.MSBuild.exe" -y
+ - choco install "sonarscanner-msbuild-net46" -y
  - SonarScanner.MSBuild.exe begin /k:"SonarQubeNemoOnAppveyor" /d:"sonar.host.url=https://sonarcloud.io" /o:"ceddlyburge-github" /d:"sonar.login=7d723c30b74c350c85d6552647b3dab18d520f22"
  - msbuild /verbosity:quiet "sonarqube-nemo-on-appveyor.sln"
  - SonarScanner.MSBuild.exe end /d:"sonar.login=7d723c30b74c350c85d6552647b3dab18d520f22"
