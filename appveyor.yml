@@ -1,6 +1,3 @@
-environment:
-  github_auth_token:
-    secure: 9QjK4yMv3hDjecsoKFGgHnGsThA6C0FyzVCDczk654tyn+N4jMPBcutai1JZZEOa
 before_build:
  - nuget restore
 build_script:
